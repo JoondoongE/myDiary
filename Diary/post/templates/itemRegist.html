@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regist</title>
+</head>
+<body>
+    <div>
+        <form action="{% url 'itemCreate' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="registContainer">
+                <div class="registInputContainer">
+                    <li>
+                        <p class="base">추억사진</p>
+                        <input type="file" name="image">
+                    </li>
+                    <li>
+                        <p class="base">위치</p>
+                        <input type="text" name="location">
+                    </li>
+                    <li>
+                        <p class="base">본문</p>
+                        <input type="text" name="body">
+                    </li>
+                </div>
+                    <button type="upload" class="registButton textBlack" value="Regist">Regist</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

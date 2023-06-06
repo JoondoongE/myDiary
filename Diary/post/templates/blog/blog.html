@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}" />
+    <title>전형준의 홈페이지</title>
+  </head>
+
+  <body>
+    <div class="Logo">
+      <h1 class="mainTitle">
+        <a href="/" class="mainLogo">Memory</a>
+      </h1>
+    </div>
+    {% for p in items %}
+    <article class="postBox">
+      <div class="container post">
+        <h2>
+          <a href="{{ p.get_absolute_url }}" class="postTitle">{{ p.location }}</a>
+        </h2>
+        <p class="content">{{ p.body }}</p>
+      </div>
+    </article>
+    {% endfor %}
+
+    <div>
+      <a href="blog/write/"
+        ><button type="button" class="btn btn-secondary write">
+          글쓰기
+        </button></a
+      >
+    </div>
+    <hr />
+    <hr />
+    <article class="footerBox">
+      <footer>Memory List</footer>
+    </article>
+  </body>
+</html>

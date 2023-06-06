@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/single_post.css' %}">
+    <title>{{ items.location  }} - Memory</title>
+</head>
+<body>
+    <div class = "titleBox">
+        <h1 class="mainTitle"><a href="blog/" class="mainLogo">자세히</a></h1>
+    </div>
+
+    <div class = "postBox">
+        <hr/>
+        <div class = "postTitle">
+            <h2>{{ items.location }}</h2>
+        </div>
+        <div class = "postTitle">
+            {% if items.image %}
+            <img src="{{items.image.url}}" width="300" height="400">
+            {% else %}
+            <div>사진은 없습니다.</div>
+            {% endif %}
+        </div>
+        <hr/>
+        <div class = "mainPost">
+            {{ items.body }}
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <div>
+            <a href="edit/"><button type="button" class="btn btn-secondary write">수정하기</button></a>
+            <a href="delete/"><button type="button" class="btn btn-secondary write">삭제하기</button></a>
+        </div>
+    </div>
+    <article class="footerBox">
+        <footer>ABOUT Lee Ga Hyun & Jeon Hyeong Jun</footer>
+    </article>
+</body>
+</html>
